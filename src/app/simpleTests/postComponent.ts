@@ -1,13 +1,14 @@
 export class PostComponent{
-  totalLikes!: number;
+  totalLikes: number = 0;
 
-  public like(){
+  like(){
     this.totalLikes++;
   }
 
-  public dislike(){
+  dislike(){
     if(this.totalLikes){
       this.totalLikes--;
     }
   }
+
 }
