@@ -2,7 +2,7 @@ import { PostComponent } from './postComponent';
 
 describe('Post Component', () => {
   //global variable
-  let component:PostComponent;
+  let component: PostComponent;
 
   // only once
   beforeAll(() => { });
@@ -20,8 +20,6 @@ describe('Post Component', () => {
   });
 
   it('Should increase likes', () => {
-    //Arrange
-    component = new PostComponent();
     //Act
     component.like();
     //Assert
@@ -29,10 +27,14 @@ describe('Post Component', () => {
   });
 
   it('Should decrease likes', () => {
-    component = new PostComponent();
 
     component.dislike()
     expect(component.totalLikes).toBe(2);
+  });
+  //Assert
+  it('Should decrease likes only if the totallikes is not 0', () => {
+    component.dislike()
+    expect(component.totalLikes).not.toBe(-1);
   });
 
 });
